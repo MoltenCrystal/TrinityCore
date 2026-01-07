@@ -1,21 +1,28 @@
--- Obsidian Warders (77240)
-
-SET @CGUID := 5000500;
-SET @OGUID := 50000000;
-SET @NPCTEXTID := 50000000;
 
 -- Phases
 DELETE FROM `phase_name` WHERE `ID` IN (19821, 19820, 19822);
 INSERT INTO `phase_name` (`ID`, `Name`) VALUES 
 (19821, 'Toddy Whiskers and Portal in Stormwind Harbor'),
-(19820, 'Dracthyr Sparring Area in Stormwind City Cemetery'),
+(19820, 'Dracthyr Sparring Area in Stormwind Harbor'),
 (19822, 'Dracthyr and Commanders in Stormwind Harbor');
 
-DELETE FROM `phase_area` WHERE `AreaId`=4411 AND `PhaseId`IN (19821, 19822) OR `AreaId`=5346 AND `PhaseId`=19820;
+DELETE FROM `phase_area` WHERE `AreaId`=4411 AND `PhaseId`IN (19821, 19822, 19820);
 INSERT INTO `phase_area` (`AreaId`, `PhaseId`, `Comment`) VALUES 
 (4411, 19821, 'Cosmetic phase for Toddy Whiskers and Portal in Stormwind Harbor'),
-(5346, 19820, 'Cosmetic phase for Dracthyr Sparring Area in Stormwind City Cemetery'),
+(4411, 19820, 'Cosmetic phase for Dracthyr Sparring Area in Stormwind Harbor'),
 (4411, 19822, 'Cosmetic phase for Dracthyr and Commanders in Stormwind Harbor');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 26 AND `SourceGroup` IN (19820, 19821, 19822);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES                                   -- Base level requirement
+(26, 19821, 0, 0, 1, 28, 0, 72240, 0, 0, 0, 0, 0, '', 'Phase 19821: Player has completed/rewarded quest 72240'),
+(26, 19821, 0, 0, 2, 9,  0, 72240, 0, 0, 0, 0, 0, '', 'Phase 19821: Player has quest 72240 taken/in progress'),
+(26, 19820, 0, 0, 1, 9,  0, 72240, 0, 0, 0, 0, 0, '', 'Phase 19820: Player has quest 72240 taken/in progress ONLY'),
+(26, 19822, 0, 0, 1, 28, 0, 72240, 0, 0, 0, 0, 0, '', 'Phase 19822: Player has completed/rewarded quest 72240');
+
+-- Obsidian Warders (77240)
+SET @CGUID := 50000500;
+SET @OGUID := 50000000;
+SET @NPCTEXTID := 50000000;
 
 DELETE FROM `gameobject_addon` WHERE `guid` BETWEEN @OGUID+0 AND @OGUID+0;
 INSERT INTO `gameobject_addon` (`guid`, `parent_rotation0`, `parent_rotation1`, `parent_rotation2`, `parent_rotation3`, `WorldEffectID`, `AIAnimKitID`) VALUES
@@ -51,11 +58,11 @@ UPDATE `creature` SET `PhaseId`='19821' WHERE `id`=189077; -- Toddy Whiskers
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+9;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficulties`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `MovementType`, `npcflag`, `unit_flags`, `unit_flags2`, `unit_flags3`, `VerifiedBuild`) VALUES
-(@CGUID+0, 198401, 0, 1519, 5346, '0', '19820', 0, 0, 0, -8475.4462890625, 1041.0242919921875, 59.70163726806640625, 4.206534385681152343, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dervishian (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1
-(@CGUID+1, 198393, 0, 1519, 5346, '0', '19820', 0, 0, 0, -8481.5712890625, 1035.3646240234375, 59.88629913330078125, 1.231970787048339843, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: 393746 - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT])
-(@CGUID+2, 198393, 0, 1519, 5346, '0', '19820', 0, 0, 0, -8480.2607421875, 1039.0833740234375, 59.82388687133789062, 4.373563766479492187, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: )
-(@CGUID+3, 198393, 0, 1519, 5346, '0', '19820', 0, 0, 0, -8475.5908203125, 1033.420166015625, 59.78345489501953125, 0.758572936058044433, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: 393746 - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT])
-(@CGUID+4, 198393, 0, 1519, 5346, '0', '19820', 0, 0, 0, -8472.7294921875, 1036.1319580078125, 59.69109344482421875, 3.900165796279907226, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: )
+(@CGUID+0, 198401, 0, 1519, 4411, '0', '19820', 0, 0, 0, -8475.4462890625, 1041.0242919921875, 59.70163726806640625, 4.206534385681152343, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dervishian (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1
+(@CGUID+1, 198393, 0, 1519, 4411, '0', '19820', 0, 0, 0, -8481.5712890625, 1035.3646240234375, 59.88629913330078125, 1.231970787048339843, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: 393746 - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT])
+(@CGUID+2, 198393, 0, 1519, 4411, '0', '19820', 0, 0, 0, -8480.2607421875, 1039.0833740234375, 59.82388687133789062, 4.373563766479492187, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: )
+(@CGUID+3, 198393, 0, 1519, 4411, '0', '19820', 0, 0, 0, -8475.5908203125, 1033.420166015625, 59.78345489501953125, 0.758572936058044433, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: 393746 - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT])
+(@CGUID+4, 198393, 0, 1519, 4411, '0', '19820', 0, 0, 0, -8472.7294921875, 1036.1319580078125, 59.69109344482421875, 3.900165796279907226, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind City Cemetery - Difficulty: 0) CreateObject1 (Auras: )
 (@CGUID+5, 198408, 0, 1519, 4411, '0', '19822', 0, 0, 0, -8640.2275390625, 1282.6754150390625, 5.789757728576660156, 4.034814357757568359, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dervishian (Area: Stormwind Harbor - Difficulty: 0) CreateObject1
 (@CGUID+6, 198393, 0, 1519, 4411, '0', '19822', 0, 0, 0, -8635.0244140625, 1278.326416015625, 5.31617593765258789, 1.2318267822265625, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind Harbor - Difficulty: 0) CreateObject1 (Auras: 393746 - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT])
 (@CGUID+7, 198393, 0, 1519, 4411, '0', '19822', 0, 0, 0, -8633.7138671875, 1282.04345703125, 5.317009925842285156, 4.373419761657714843, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 64978), -- Dracthyr Evoker (Area: Stormwind Harbor - Difficulty: 0) CreateObject1 (Auras: )
@@ -65,7 +72,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 UPDATE `creature_template` SET `npcflag`=281474976710658 WHERE `entry`=189602; -- Toddy Whiskers
 
 -- Devrishians and Dracthyr Evokers
-DELETE FROM `creature_template_addon` WHERE `entry` IN (198408 /*198408 (Dervishian)*/, 198401 /*198401 (Dervishian)*/, 198393 /*198393 (Dracthyr Evoker) - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT]*/);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (198408 /*198408 (Dervishian)*/, 198401 /*198401 (Dervishian)*/, 198393 /*198393 (Dracthyr Evoker) - Sparring Aura: AzureStrike/Pyre/TimeSpiral/ObsidianScales [DNT]*/, 189078 /*189078 (Scalecommander Azurathel) - Chat Bubble*/);
 INSERT INTO `creature_template_addon` (`entry`, `PathId`, `mount`, `StandState`, `AnimTier`, `VisFlags`, `SheathState`, `PvpFlags`, `emote`, `aiAnimKit`, `movementAnimKit`, `meleeAnimKit`, `visibilityDistanceType`, `auras`) VALUES
 (198401, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- 198401 (Dervishian)
 (198408, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ''), -- 198408 (Dervishian)
