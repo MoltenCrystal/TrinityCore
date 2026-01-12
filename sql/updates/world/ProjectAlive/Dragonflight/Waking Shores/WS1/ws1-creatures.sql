@@ -1,6 +1,5 @@
 SET @CGUID := 60000000;
 SET @NPCTEXTID := 60000000;
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+1251;
 
 DELETE FROM `creature_equip_template` WHERE (`ID`=1 AND `CreatureID` IN (195032,186593,186582,186584,191721,193362,191169));
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `AppearanceModID1`, `ItemVisual1`, `ItemID2`, `AppearanceModID2`, `ItemVisual2`, `ItemID3`, `AppearanceModID3`, `ItemVisual3`, `VerifiedBuild`) VALUES
@@ -1031,6 +1030,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+18, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, ''), -- Expedition Guardian
 (@CGUID+21, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, ''), -- Expedition Guardian
 (@CGUID+22, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Salty Skitterbug
+(@CGUID+25, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+26, 0, 0, 0, 0, 0, 1, 0, 431, 0, 0, 0, 0, ''), -- Distressed Marmoni
 (@CGUID+27, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
 (@CGUID+30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '244867'), -- Expedition Provisioner - 244867 - 8.0 Carry Sack New Anim
@@ -1048,6 +1048,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+52, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, ''), -- Expedition Guardian
 (@CGUID+53, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Salty Skitterbug
 (@CGUID+54, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, ''), -- Expedition Guardian
+(@CGUID+55, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+57, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
 (@CGUID+58, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+59, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
@@ -1059,9 +1060,11 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+71, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- The Defiant Dragonscale
 (@CGUID+72, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- (Bunny) Sessile + Gigantic AOI
 (@CGUID+74, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Kite
+(@CGUID+75, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+76, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
 (@CGUID+82, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '373750'), -- Primal Proto-Drake - 373750 - Dragonriding: Anim Replacements [DNT]
 (@CGUID+83, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 4, '372498'), -- Captain Caspartine - 372498 - Channel: Look Through Spyglass (Nightborne Male) [DNT]
+(@CGUID+85, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+87, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+89, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '368927'), -- Salty Salamander - 368927 - Channel: Sleep Zzz (With Aggro Change) - Breath
 (@CGUID+91, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '373750'), -- Ancient Proto-Dragon - 373750 - Dragonriding: Anim Replacements [DNT]
@@ -1069,6 +1072,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+94, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+96, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, '373750'), -- Primal Proto-Drake - 373750 - Dragonriding: Anim Replacements [DNT]
 (@CGUID+97, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Salty Skitterfly
+(@CGUID+98, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+99, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Salty Skitterbug
 (@CGUID+100, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Salty Skitterbug
 (@CGUID+101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '151597'), -- Primal Proto-Drake - 151597 - No NPC Damage Below 45-90%
@@ -1114,12 +1118,14 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+159, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
 (@CGUID+160, 0, 0, 0, 0, 0, 1, 0, 27, 0, 0, 0, 0, '373362'), -- Primal Proto-Whelp - 373362 - Sparring Aura: AttackUnarmed/DragonSpit [DNT]
 (@CGUID+161, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
+(@CGUID+163, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+165, 0, 0, 0, 0, 0, 1, 0, 431, 0, 0, 0, 0, ''), -- Distressed Marmoni
 (@CGUID+166, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
 (@CGUID+167, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
 (@CGUID+168, 0, 0, 0, 0, 0, 1, 0, 27, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
 (@CGUID+170, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374094'), -- Distressed Marmoni - 374094 - Hanging [DNT]
 (@CGUID+173, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374094'), -- Distressed Marmoni - 374094 - Hanging [DNT]
+(@CGUID+174, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+175, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374094'), -- Distressed Marmoni - 374094 - Hanging [DNT]
 (@CGUID+176, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '151597'), -- Primal Proto-Drake - 151597 - No NPC Damage Below 45-90%
 (@CGUID+177, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
@@ -1142,6 +1148,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+196, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374094'), -- Distressed Marmoni - 374094 - Hanging [DNT]
 (@CGUID+199, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '373750'), -- Primal Proto-Drake - 373750 - Dragonriding: Anim Replacements [DNT]
 (@CGUID+200, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
+(@CGUID+204, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+201, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474'), -- Distressed Marmoni - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune)
 (@CGUID+202, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
 (@CGUID+203, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Drake
@@ -1180,6 +1187,8 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+260, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '368927'), -- Salty Salamander - 368927 - Channel: Sleep Zzz (With Aggro Change) - Breath
 (@CGUID+262, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+263, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '368927'), -- Salty Salamander - 368927 - Channel: Sleep Zzz (With Aggro Change) - Breath
+(@CGUID+268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
+(@CGUID+269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+264, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '373750'), -- Ancient Proto-Dragon - 373750 - Dragonriding: Anim Replacements [DNT]
 (@CGUID+272, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '151597'), -- Primal Proto-Drake - 151597 - No NPC Damage Below 45-90%
 (@CGUID+276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '385801'), -- Primal Proto-Drake - 385801 - Channel: FlySitGround [DNT]
@@ -1199,6 +1208,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+303, 0, 0, 0, 0, 0, 1, 0, 431, 0, 0, 0, 0, ''), -- Distressed Marmoni
 (@CGUID+305, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '384378'), -- Dragon Glyph - 384378 - Visual
 (@CGUID+309, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
+(@CGUID+310, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+311, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- Tracker Dragon Glyph
 (@CGUID+313, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374094'), -- Distressed Marmoni - 374094 - Hanging [DNT]
 (@CGUID+314, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '374310'), -- Lava Snail - 374310 - Channel: Sleep Zzz (With Aggro Change) - Submerged (Scale 2, Up 2)
@@ -1429,6 +1439,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+697, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+698, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+699, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373312'), -- Primal Proto-Whelp - 373312 - Channel: Whelp Eating [DNT]
+(@CGUID+744, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373366'), -- Primal Proto-Drake - 373366 - Channel: Perch [DNT]
 (@CGUID+702, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '373312'), -- Primal Proto-Whelp - 373312 - Channel: Whelp Eating [DNT]
@@ -1483,7 +1494,9 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+809, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Restless Explorer
 (@CGUID+812, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, '373750'), -- Ancient Proto-Dragon - 373750 - Dragonriding: Anim Replacements [DNT]
 (@CGUID+813, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '151597'), -- Primal Proto-Drake - 151597 - No NPC Damage Below 45-90%
+(@CGUID+815, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+816, 0, 0, 0, 0, 0, 1, 0, 27, 0, 0, 0, 0, ''), -- Salty Salamander
+(@CGUID+818, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+817, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- The Defiant Dragonscale
 (@CGUID+819, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- (Bunny) Sessile + Gigantic AOI
 (@CGUID+820, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 4, '372498'), -- Captain Caspartine - 372498 - Channel: Look Through Spyglass (Nightborne Male) [DNT]
@@ -1702,6 +1715,7 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+1183, 0, 0, 0, 0, 0, 1, 0, 469, 0, 0, 0, 0, ''), -- Summoned Typhoon
 (@CGUID+1188, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+1189, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
+(@CGUID+1193, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5001, 0, 0, ''), -- Primal Proto-Drake
 (@CGUID+1190, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
 (@CGUID+1191, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Primal Proto-Whelp
 (@CGUID+1194, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '151597'), -- Primal Proto-Drake - 151597 - No NPC Damage Below 45-90%
