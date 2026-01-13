@@ -1,0 +1,5 @@
+SET @CGUID := 63000000;
+
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+373;
+
+-- Channel beam lava 375941
