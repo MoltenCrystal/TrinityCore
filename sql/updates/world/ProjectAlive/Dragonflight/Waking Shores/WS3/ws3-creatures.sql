@@ -1,6 +1,6 @@
 SET @CGUID := 62000000;
 
-DELETE FROM `creature_equip_template` WHERE (`ID`=1 AND `CreatureID` IN (191507,192341,186727,186777,191898,191899,186697,190771,186792,194804,197260,191611,195678,191446,190766,190767)) OR (`ID`=2 AND `CreatureID`=192341);
+DELETE FROM `creature_equip_template` WHERE (`ID`=1 AND `CreatureID` IN (191507,192341,186727,186777,191898,191899,186697,190771,186792,194804,197260,191611,195678,191446,190766,190767,195672)) OR (`ID`=2 AND `CreatureID`=192341);
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `AppearanceModID1`, `ItemVisual1`, `ItemID2`, `AppearanceModID2`, `ItemVisual2`, `ItemID3`, `AppearanceModID3`, `ItemVisual3`, `VerifiedBuild`) VALUES
 (191507, 1, 163608, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Gragza the Dragon-Breaker
 (192341, 2, 192108, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Qalashi Drakeflayer
@@ -17,10 +17,11 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `Appearanc
 (191611, 1, 107134, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Dragonhunter Igordan
 (195678, 1, 192109, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Qalashi Marauder
 (191446, 1, 192120, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Qalashi Scoundrel
+(195672, 1, 192120, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Qalashi Scoundrel
 (190766, 1, 192120, 0, 0, 0, 0, 0, 0, 0, 0, 65299), -- Qalashi Ragetamer
 (190767, 1, 192120, 0, 0, 0, 0, 0, 0, 0, 0, 65299); -- Qalashi Metalshaper
 
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+520;
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+530;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficulties`, `PhaseId`, `PhaseGroup`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `MovementType`, `npcflag`, `unit_flags`, `unit_flags2`, `unit_flags3`, `VerifiedBuild`) VALUES
 -- (@CGUID+0, 191833, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3050.612060546875, -849.62847900390625, 11.25384712219238281, 0.307751685380935668, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Scavenger (Area: The Waking Shores - Difficulty: 0) CreateObject1 - !!! already present in database !!!
 (@CGUID+1, 192137, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3259.90478515625, -790.2919921875, 38.82507705688476562, 1.690302848815917968, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Flick (Area: The Waking Shores - Difficulty: 0) CreateObject1
@@ -35,12 +36,12 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+10, 195853, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3302.826904296875, -753.94232177734375, 47.55311203002929687, 0.981981575489044189, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Trainee (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+11, 189307, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3115.609619140625, -889.6527099609375, 4.43079996109008789, 0.466220796108245849, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Skitterfly (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+12, 186684, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3175.531494140625, -859.90533447265625, 80.3588104248046875, 0.538814187049865722, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: The Waking Shores - Difficulty: 0) CreateObject1
-(@CGUID+13, 190767, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3321.32373046875, -782.84722900390625, 53.47031021118164062, 0.510799646377563476, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Metalshaper (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 369596 - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT])
+(@CGUID+13, 190767, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3321.32373046875, -782.84722900390625, 53.47031021118164062, 0.510799646377563476, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Metalshaper (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 369596 - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT])
 (@CGUID+14, 191818, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3242.069091796875, -895.6763916015625, 59.37070846557617187, 5.105511665344238281, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Shaggy Rabbit (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+15, 191637, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3320.616455078125, -809.86114501953125, 79.2821197509765625, 1.652549982070922851, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+16, 191812, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3191.82861328125, -785.07659912109375, 31.40427017211914062, 2.875806331634521484, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Crumbling Pebbles (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+17, 191637, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3290.299560546875, -781.23614501953125, 60.59508514404296875, 2.899724245071411132, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: The Waking Shores - Difficulty: 0) CreateObject1
-(@CGUID+18, 190766, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3327.427001953125, -739.7586669921875, 54.17749786376953125, 3.701055765151977539, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: The Waking Shores - Difficulty: 0) CreateObject1
+(@CGUID+18, 190766, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3327.427001953125, -739.7586669921875, 54.17749786376953125, 3.701055765151977539, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+19, 191809, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3212.219482421875, -749.880126953125, 57.20917510986328125, 2.141194105148315429, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Tiny Butterfly (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+20, 191624, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3191.380126953125, -715.39581298828125, 50.06683731079101562, 5.122931957244873046, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Tranquil Vorquin (Area: The Waking Shores - Difficulty: 0) CreateObject1
 -- (@CGUID+21, 198618, 2444, 13644, 13644, '0', '0', 0, 0, 0, 2915.40283203125, -870.6961669921875, 258.470855712890625, 0, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Tracker Dragon Glyph (Area: The Waking Shores - Difficulty: 0) CreateObject1 - !!! already present in database !!!
@@ -50,7 +51,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+25, 186687, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3185.967041015625, -800.62152099609375, 34.312713623046875, 3.461145401000976562, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Arbalest (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+26, 191809, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3138.390869140625, -745.74664306640625, 35.261260986328125, 5.107524871826171875, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Tiny Butterfly (Area: The Waking Shores - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
 (@CGUID+27, 191818, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3271.103515625, -878.034912109375, 61.259552001953125, 3.446163892745971679, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Shaggy Rabbit (Area: The Waking Shores - Difficulty: 0) CreateObject1
-(@CGUID+28, 190767, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3328.481689453125, -775.52081298828125, 53.47395706176757812, 4.110702991485595703, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Metalshaper (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 369596 - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT])
+(@CGUID+28, 190767, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3328.481689453125, -775.52081298828125, 53.47395706176757812, 4.110702991485595703, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Metalshaper (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 369596 - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT])
 (@CGUID+29, 192104, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3256.25, -783.333984375, 39.69808197021484375, 1.755883336067199707, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Magma Slug (Area: The Waking Shores - Difficulty: 0) CreateObject1
 -- (@CGUID+30, 188296, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3069.170166015625, -874.701416015625, 34.139617919921875, 0.832864224910736083, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Djaradin (Area: The Waking Shores - Difficulty: 0) CreateObject1 - !!! already present in database !!!
 -- (@CGUID+31, 194972, 2444, 13644, 13644, '0', '0', 0, 0, 0, 2915.40283203125, -870.6961669921875, 258.470855712890625, 0, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Dragon Glyph (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 385038 - Visual) - !!! already present in database !!!
@@ -78,7 +79,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+53, 191629, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3306.478515625, -820.5169677734375, 55.62025833129882812, 5.378020286560058593, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Slug (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+54, 192069, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3190.5302734375, -717.85931396484375, 50.73230743408203125, 2.778613805770874023, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Vorquin Runt (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+55, 192137, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3330.20166015625, -760.6510009765625, 51.12204360961914062, 2.95787811279296875, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Flick (Area: The Waking Shores - Difficulty: 0) CreateObject1
-(@CGUID+56, 190766, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3330.677978515625, -660.46356201171875, 71.5182342529296875, 3.421010732650756835, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: The Waking Shores - Difficulty: 0) CreateObject1
+(@CGUID+56, 190766, 2444, 13644, 13644, '0', '0', 0, 0, 1, 3330.677978515625, -660.46356201171875, 71.5182342529296875, 3.421010732650756835, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+57, 191446, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3406.135498046875, -740.54168701171875, 51.38396453857421875, 0.988736391067504882, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Scoundrel (Area: The Waking Shores - Difficulty: 0) CreateObject1 (Auras: 391245 - Supply-Laden)
 (@CGUID+58, 191809, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3274.019287109375, -713.01898193359375, 78.77764892578125, 2.159236907958984375, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Tiny Butterfly (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@CGUID+59, 191812, 2444, 13644, 13644, '0', '0', 0, 0, 0, 3251.44140625, -712.8140869140625, 82.91094970703125, 2.962250947952270507, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Crumbling Pebbles (Area: The Waking Shores - Difficulty: 0) CreateObject1
@@ -288,7 +289,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+266, 186684, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3708.832275390625, -598.05865478515625, 100.7170333862304687, 3.576137065887451171, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
 (@CGUID+267, 191446, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3790.0166015625, -498.744781494140625, 43.75803375244140625, 2.82337045669555664, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Scoundrel (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+268, 190766, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3817.4765625, -492.307281494140625, 43.82408523559570312, 0.585083723068237304, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 358419 - Channel: Lava Orb (From Ground) [DNT])
-(@CGUID+269, 186684, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3725.10498046875, -624.2742919921875, 38.01509857177734375, 1.650642633438110351, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
+(@CGUID+269, 186684, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3725.10498046875, -624.2742919921875, 38.01509857177734375, 1.650642633438110351, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
 (@CGUID+270, 186684, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3791.126708984375, -489.739593505859375, 46.35873031616210937, 4.619627952575683593, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+271, 186684, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3793.989501953125, -517.18402099609375, 43.92433929443359375, 2.93472146987915039, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Phoenix (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 -- (@CGUID+272, 197869, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3646.474365234375, -609.4742431640625, 49.51686859130859375, 5.171146392822265625, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Shattered Orb (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 351325 - Permanent Feign Death (Untrackable), 372280 - Roped) - !!! might be temporary spawn !!!
@@ -399,7 +400,6 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+377, 192138, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4067.534912109375, -502.4976806640625, 150.94036865234375, 5.688925743103027343, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Pincer (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+378, 197902, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4060.326416015625, -430.96875, 83.03028106689453125, 1.506669521331787109, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Elemental (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 370034 - Lava Pool, 364588 - Channel: Lava (ChannelCastOmni) [DNT])
 (@CGUID+379, 192135, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4004.818603515625, -529.0086669921875, 116.64520263671875, 2.521996498107910156, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Phoenix Hatchling (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
-(@CGUID+380, 192341, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4000.51025390625, -610.8309326171875, 105.1113510131835937, 3.972602367401123046, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Qalashi Drakeflayer (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
 (@CGUID+381, 191901, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4124.69775390625, -612.9617919921875, 174.610565185546875, 2.935830354690551757, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Blazing Dreadsquall (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+382, 191678, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4081.759521484375, -611.5694580078125, 107.6709823608398437, 2.723908901214599609, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Magmammoth Crusher (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+383, 192135, 2444, 13644, 13704, '0', '0', 0, 0, 0, 4009.9228515625, -543.828125, 114.9734878540039062, 2.09895491600036621, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Phoenix Hatchling (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
@@ -532,10 +532,18 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficult
 (@CGUID+510, 191136, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3430.684814453125, -630.74481201171875, 68.96741485595703125, 0.293901115655899047, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Flameshatter (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 358419 - Channel: Lava Orb (From Ground) [DNT])
 (@CGUID+511, 190766, 2444, 13644, 13704, '0', '0', 0, 0, 1, 3474.11572265625, -632.09326171875, 74.60114288330078125, 0.851197123527526855, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@CGUID+512, 191672, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3539.91748046875, -610.78643798828125, 118.8429336547851562, 1.919729948043823242, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Lava Tarantula (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
-(@CGUID+513, 191513, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3891.550048828125, -642.16497802734375, 103.8809967041015625, 5.952388763427734375, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299); -- Captured Raven (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 376065 - Raven Transform [DNT])
+(@CGUID+513, 191513, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3891.550048828125, -642.16497802734375, 103.8809967041015625, 5.952388763427734375, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Captured Raven (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 376065 - Raven Transform [DNT])
+(@CGUID+514, 192137, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3395.31640625, -720.97515869140625, 50.49059295654296875, 4.171271800994873046, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Flick (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@CGUID+515, 191628, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3471.03759765625, -673.37359619140625, 60.32985687255859375, 4.700671195983886718, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Lava Snail (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@CGUID+516, 190766, 2444, 13644, 13704, '0', '0', 0, 0, 1, 3500.650146484375, -566.02081298828125, 74.99288177490234375, 1.330419421195983886, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Ragetamer (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 391245 - Supply-Laden) (possible waypoints or random movement)
+(@CGUID+517, 195672, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3518.1259765625, -639.390625, 82.16283416748046875, 0, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Scoundrel (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 392024 - Sitting Djaradin, 391245 - Supply-Laden)
+(@CGUID+518, 186792, 2444, 13644, 13704, '0', '0', 0, 0, 2, 3419.333251953125, -566.21527099609375, 71.7258758544921875, 5.402953147888183593, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299), -- Qalashi Skirmisher (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 376715 - Channel: Sharpen Sword [DNT], 391245 - Supply-Laden)
+(@CGUID+519, 180705, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3697.683349609375, -714.31793212890625, 34.65102767944335937, 5.488725185394287109, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Magmammoth Calf (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
+(@CGUID+520, 180705, 2444, 13644, 13704, '0', '0', 0, 0, 0, 3744.38525390625, -771.77972412109375, 35.95412445068359375, 3.631895065307617187, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Magmammoth Calf (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
+(@CGUID+521, 186792, 2444, 13644, 13704, '0', '0', 0, 0, 1, 3758.864501953125, -402.680572509765625, 56.796630859375, 2.989429235458374023, 120, 10, 0, 1, NULL, NULL, NULL, NULL, 65299), -- Qalashi Skirmisher (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (possible waypoints or random movement)
+(@CGUID+522, 186792, 2444, 13644, 13704, '0', '0', 0, 0, 1, 3746.092041015625, -449.3194580078125, 55.29071426391601562, 3.288785457611083984, 120, 0, 0, 0, NULL, NULL, NULL, NULL, 65299); -- Qalashi Skirmisher (Area: Scalecracker Keep - Difficulty: 0) CreateObject1 (Auras: 375804 - Channel: Carry Raw Meat [DNT])
 
-
-DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+520;
+DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+0 AND @CGUID+530;
 INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier`, `VisFlags`, `SheathState`, `PvpFlags`, `emote`, `aiAnimKit`, `movementAnimKit`, `meleeAnimKit`, `visibilityDistanceType`, `auras`) VALUES
 -- (@CGUID+0, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Scavenger - !!! already present in database !!!
 (@CGUID+2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Wind Serpent
@@ -544,6 +552,8 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+11, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Skitterfly
 (@CGUID+12, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '369596'), -- Qalashi Metalshaper - 369596 - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT]
+(@CGUID+15, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+17, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+19, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Tiny Butterfly
 (@CGUID+20, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Tranquil Vorquin
 -- (@CGUID+21, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, ''), -- Tracker Dragon Glyph - !!! already present in database !!!
@@ -572,15 +582,20 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+65, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Young Wind Serpent
 -- (@CGUID+68, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, '370243'), -- Bronze Timekeeper - 370243 - Cosmetic Race Flag Overhead - !!! already present in database !!!
 (@CGUID+73, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Tiny Butterfly
+(@CGUID+74, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+76, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Magmammoth Calf
 (@CGUID+78, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+89, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+90, 0, 0, 0, 0, 0, 1, 0, 505, 0, 0, 0, 0, ''), -- Qalashi Scoundrel
 (@CGUID+96, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Ruby Warden
+(@CGUID+100, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+101, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+107, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
 (@CGUID+108, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Ruby Warden
 (@CGUID+109, 0, 0, 0, 0, 0, 1, 0, 868, 0, 0, 0, 0, ''), -- Qalashi Scoundrel
 (@CGUID+116, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Ragetamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
 (@CGUID+120, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Ragetamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
+(@CGUID+122, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+124, 0, 0, 0, 0, 0, 1, 0, 64, 0, 0, 0, 0, '375948'), -- Magmammoth Bull - 375948 - Lava Shield
 (@CGUID+125, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Blazing Dreadsquall
 (@CGUID+126, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '392039'), -- Qalashi Marauder - 392039 - Dragging Shattered Orb
@@ -589,6 +604,8 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+130, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Blazing Dreadsquall
 (@CGUID+134, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369262'), -- Dragonhunter Igordan - 369262 - Carry Arbalist Ammo
 (@CGUID+143, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
+(@CGUID+146, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+150, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+153, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '390416 358419'), -- Flameshaper Lorak - 390416 - Searing Heat, 358419 - Channel: Lava Orb (From Ground) [DNT]
 (@CGUID+156, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474'), -- Qalashi Rampager - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune)
 (@CGUID+159, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
@@ -605,8 +622,10 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+180, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Ragetamer
 (@CGUID+183, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, '391254'), -- Blazing Dreadsquall - 391254 - Hearty
 (@CGUID+186, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
+(@CGUID+187, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+188, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Ragetamer
 (@CGUID+189, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '265075'), -- Magmammoth Calf - 265075 - Cosmetic - Sleep Zzz Breakable
+(@CGUID+192, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 -- (@CGUID+191, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '166615 263921 8875 19581 34902 65220 88680 264656'), -- Generic Hunter Pet - 166615 - Pet Active, 263921 - Gruff, 8875 - Pet Damage, 19581 - Pet Health, 34902 - Hunter Pet, 65220 - Avoidance, 88680 - Kindred Spirits, 264656 - Pathfinding - !!! might be temporary spawn !!!
 (@CGUID+195, 0, 0, 0, 0, 0, 1, 0, 93, 0, 0, 0, 0, ''), -- Injured Ruby Culler
 (@CGUID+202, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Snail
@@ -616,26 +635,35 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+225, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474 376838'), -- Cracked Elemental - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune), 376838 - Burning [DNT]
 (@CGUID+227, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474 376838'), -- Cracked Elemental - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune), 376838 - Burning [DNT]
 (@CGUID+233, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Tiny Butterfly
+(@CGUID+234, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+239, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474 376838'), -- Cracked Elemental - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune), 376838 - Burning [DNT]
 (@CGUID+241, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '376071'), -- Caretaker Ventraz - 376071 - Channel: Red Dragon Magic (ChannelCastOmni) [DNT]
 (@CGUID+242, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '159474 376838'), -- Cracked Elemental - 159474 - Permanent Feign Death (NO Stun, Untrackable, Immune), 376838 - Burning [DNT]
+(@CGUID+244, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+247, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Tranquil Vorquin
 (@CGUID+250, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, '370243'), -- Bronze Timekeeper - 370243 - Cosmetic Race Flag Overhead
 (@CGUID+256, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Tranquil Vorquin
 (@CGUID+259, 0, 0, 0, 0, 0, 1, 0, 868, 0, 0, 0, 0, '391245'), -- Qalashi Skirmisher - 391245 - Supply-Laden
--- (@CGUID+261, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '166615 263921 8875 19581 34902 65220 88680 264656'), -- Generic Hunter Pet - 166615 - Pet Active, 263921 - Gruff, 8875 - Pet Damage, 19581 - Pet Health, 34902 - Hunter Pet, 65220 - Avoidance, 88680 - Kindred Spirits, 264656 - Pathfinding - !!! might be temporary spawn !!!
 (@CGUID+262, 0, 0, 0, 0, 0, 1, 0, 375, 0, 0, 0, 0, ''), -- Qalashi Scoundrel
 (@CGUID+263, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Flamemuzzler - 358419 - Channel: Lava Orb (From Ground) [DNT]
 (@CGUID+265, 0, 0, 0, 0, 0, 1, 0, 868, 0, 0, 0, 0, ''), -- Qalashi Skirmisher
 (@CGUID+266, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+267, 0, 0, 0, 0, 0, 1, 0, 506, 0, 0, 0, 0, ''), -- Qalashi Scoundrel
 (@CGUID+268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Ragetamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
+(@CGUID+269, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+270, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+271, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 -- (@CGUID+272, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, '351325 372280'), -- Shattered Orb - 351325 - Permanent Feign Death (Untrackable), 372280 - Roped - !!! might be temporary spawn !!!
 (@CGUID+275, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
+(@CGUID+277, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+279, 0, 0, 0, 0, 0, 1, 0, 64, 0, 0, 0, 0, '375948'), -- Magmammoth Bull - 375948 - Lava Shield
 (@CGUID+280, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, '376065'), -- Captured Raven - 376065 - Raven Transform [DNT]
+(@CGUID+281, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+284, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+285, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+288, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+289, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+291, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+293, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
 (@CGUID+294, 0, 0, 0, 0, 0, 1, 0, 64, 0, 0, 0, 0, '375948'), -- Magmammoth Bull - 375948 - Lava Shield
 (@CGUID+295, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Magmatamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
@@ -643,8 +671,10 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+297, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '375804'), -- Qalashi Marauder - 375804 - Channel: Carry Raw Meat [DNT]
 (@CGUID+298, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '370034 364588'), -- Lava Elemental - 370034 - Lava Pool, 364588 - Channel: Lava (ChannelCastOmni) [DNT]
 (@CGUID+299, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
-(@CGUID+302, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+302, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+303, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '370034 364588'), -- Lava Elemental - 370034 - Lava Pool, 364588 - Channel: Lava (ChannelCastOmni) [DNT]
+(@CGUID+304, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+310, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 -- (@CGUID+312, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '204272'), -- Baby Winston - 204272 - World - Send General Trigger 1 To Self - 120s - 50% fail - Spawn - !!! might be temporary spawn !!!
 (@CGUID+315, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Phoenix Hatchling
 (@CGUID+316, 0, 0, 0, 0, 0, 1, 0, 64, 0, 0, 0, 0, '375948'), -- Magmammoth Bull - 375948 - Lava Shield
@@ -673,8 +703,10 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+378, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '370034 364588'), -- Lava Elemental - 370034 - Lava Pool, 364588 - Channel: Lava (ChannelCastOmni) [DNT]
 (@CGUID+379, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Phoenix Hatchling
 (@CGUID+384, 0, 0, 0, 0, 0, 1, 0, 868, 0, 0, 0, 0, ''), -- Qalashi Drakeflayer
+(@CGUID+387, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+390, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588 391245'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT], 391245 - Supply-Laden
 (@CGUID+391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '376715'), -- Qalashi Drakeflayer - 376715 - Channel: Sharpen Sword [DNT]
+(@CGUID+392, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Drakeflayer
 (@CGUID+393, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
 (@CGUID+395, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
 (@CGUID+396, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
@@ -682,19 +714,23 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+398, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Drakeflayer
 (@CGUID+399, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
 (@CGUID+400, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Drakeflayer
+(@CGUID+401, 0, 0, 0, 0, 0, 1, 0, 333, 0, 0, 0, 0, ''), -- Qalashi Drakeflayer
 (@CGUID+402, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '376714'), -- Qalashi Drakeflayer - 376714 - Channel: Work With Hammer [DNT]
 (@CGUID+406, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
 (@CGUID+408, 0, 0, 0, 0, 0, 1, 0, 506, 0, 0, 0, 0, ''), -- Qalashi Rampager
 (@CGUID+410, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Magmatamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
 (@CGUID+413, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Phoenix Hatchling
 (@CGUID+414, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
-(@CGUID+415, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+415, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+417, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+418, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588 391245'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT], 391245 - Supply-Laden
 (@CGUID+419, 0, 0, 0, 0, 0, 1, 0, 64, 0, 0, 0, 0, ''), -- Captured Raven
 (@CGUID+420, 0, 0, 0, 0, 0, 1, 0, 0, 24888, 0, 0, 0, ''), -- Phoenix Hatchling
 (@CGUID+421, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
+(@CGUID+422, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+423, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
 (@CGUID+429, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '369588'), -- Qalashi Drakeflayer - 369588 - Sparring Aura: Attack1H [DNT]
+(@CGUID+430, 0, 0, 0, 0, 0, 1, 0, 418, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+432, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Dragon Target [DNT]
 (@CGUID+436, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+441, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '358419'), -- Qalashi Magmatamer - 358419 - Channel: Lava Orb (From Ground) [DNT]
@@ -717,7 +753,11 @@ INSERT INTO `creature_addon` (`guid`, `PathId`, `mount`, `StandState`, `AnimTier
 (@CGUID+499, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+500, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, ''), -- Lava Phoenix
 (@CGUID+504, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '395625'), -- Empowered Snail - 395625 - Powering Up
-(@CGUID+513, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, '376065'); -- Captured Raven - 376065 - Raven Transform [DNT]
+(@CGUID+513, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, '376065'), -- Captured Raven - 376065 - Raven Transform [DNT]
+(@CGUID+516, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '391245'), -- Qalashi Ragetamer - 391245 - Supply-Laden
+(@CGUID+518, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '376715 391245'), -- Qalashi Skirmisher - 376715 - Channel: Sharpen Sword [DNT], 391245 - Supply-Laden
+(@CGUID+520, 0, 0, 0, 0, 0, 1, 0, 868, 0, 0, 0, 0, ''), -- Qalashi Skirmisher
+(@CGUID+522, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '375804'); -- Qalashi Skirmisher - 375804 - Channel: Carry Raw Meat [DNT]
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (199010 /*199010 (Empowered Snail) - Powering Up*/, 197902 /*197902 (Lava Elemental) - Lava Pool, Channel: Lava (ChannelCastOmni) [DNT]*/, 186573 /*186573 (Restless Lava) - Lava Pool, Lava Trail [DNT]*/, 192341 /*192341 (Qalashi Drakeflayer) - Channel: Work With Hammer [DNT]*/, 191898 /*191898 (Qalashi Ragetamer) - Channel: Carry Bone Wrap [DNT]*/, 186724 /*186724 (Qalashi Flamemaster) - Channel: Lava (ChannelCastOmni) [DNT]*/, 192135 /*192135 (Phoenix Hatchling)*/, 103159 /*103159 (Baby Winston) - World - Send General Trigger 1 To Self - 120s - 50% fail - Spawn*/, 186570 /*186570 (Lava Elemental) - Lava Pool, Channel: Lava (ChannelCastOmni) [DNT]*/, 191899 /*191899 (Qalashi Marauder) - Channel: Carry Raw Meat [DNT]*/, 191902 /*191902 (Qalashi Magmatamer) - Channel: Lava Orb (From Ground) [DNT]*/, 186728 /*186728 (Magmammoth Bull) - Lava Shield*/, 191513 /*191513 (Captured Raven) - Raven Transform [DNT]*/, 194222 /*194222 (Qalashi Flamemuzzler) - Channel: Lava Orb (From Ground) [DNT]*/, 190667 /*190667 (Bronze Timekeeper) - Cosmetic Race Flag Overhead*/, 188297 /*188297 (Caretaker Ventraz) - Channel: Red Dragon Magic (ChannelCastOmni) [DNT]*/, 191945 /*191945 (Cracked Elemental) - Permanent Feign Death (NO Stun, Untrackable, Immune), Burning [DNT]*/, 165189 /*165189 (Generic Hunter Pet) - Pet Active, Gruff, Pet Damage, Pet Health, Hunter Pet, Avoidance, Kindred Spirits, Pathfinding*/, 180705 /*180705 (Magmammoth Calf) - Cosmetic - Sleep Zzz Breakable*/, 186792 /*186792 (Qalashi Skirmisher) - Channel: Carry Raw Meat [DNT]*/, 197869 /*197869 (Shattered Orb) - Permanent Feign Death (Untrackable), Roped*/, 194804 /*194804 (Qalashi Rampager) - Permanent Feign Death (NO Stun, Untrackable, Immune)*/, 197260 /*197260 (Flameshaper Lorak) - Searing Heat, Channel: Lava Orb (From Ground) [DNT]*/, 191611 /*191611 (Dragonhunter Igordan) - Carry Arbalist Ammo*/, 195678 /*195678 (Qalashi Marauder) - Dragging Shattered Orb*/, 191509 /*191509 (Blazing Dreadsquall)*/, 191903 /*191903 (Magmammoth Bull) - Lava Shield*/, 190766 /*190766 (Qalashi Ragetamer) - Channel: Lava Orb (From Ground) [DNT]*/, 194693 /*194693 (Dragon Target [DNT])*/, 191647 /*191647 (Young Wind Serpent)*/, 191637 /*191637 (Lava Phoenix)*/, 191446 /*191446 (Qalashi Scoundrel) - Supply-Laden*/, 191833 /*191833 (Qalashi Scavenger)*/, 186687 /*186687 (Arbalest)*/, 190767 /*190767 (Qalashi Metalshaper) - Conversation Aura: Talk/Point/Roar/Salute/Cheer [DNT]*/, 191645 /*191645 (Wind Serpent)*/);
 INSERT INTO `creature_template_addon` (`entry`, `PathId`, `mount`, `StandState`, `AnimTier`, `VisFlags`, `SheathState`, `PvpFlags`, `emote`, `aiAnimKit`, `movementAnimKit`, `meleeAnimKit`, `visibilityDistanceType`, `auras`) VALUES
@@ -818,7 +858,6 @@ UPDATE `creature_template_difficulty` SET `StaticFlags1`=0x10000000, `VerifiedBu
 UPDATE `creature_template_difficulty` SET `StaticFlags1`=0x10000000, `VerifiedBuild`=65299 WHERE (`Entry`=191629 AND `DifficultyID`=0); -- 191629 (Lava Slug) - CanSwim
 UPDATE `creature_template_difficulty` SET `StaticFlags1`=0x10000000, `VerifiedBuild`=65299 WHERE (`Entry`=191645 AND `DifficultyID`=0); -- 191645 (Wind Serpent) - CanSwim
 
-
 UPDATE `creature_model_info` SET `VerifiedBuild`=65299 WHERE `DisplayID` IN (104023, 104021, 102601, 101804, 102583, 102593, 102594, 102557, 104026, 104685, 102475, 104511, 102476, 102585, 102596, 102482, 102590, 102587, 104512, 102491, 68067, 104513, 58875, 102604, 102584, 102602, 106053, 102493, 103829, 107528, 102592, 102517, 102505, 104025, 102506, 102738, 110465, 102605, 109756, 104022, 104024, 101815, 102606, 104524, 104701, 110460, 75346, 75347, 100841, 75343, 101811, 101810, 104050, 101814, 104143);
 UPDATE `creature_model_info` SET `CombatReach`=5, `VerifiedBuild`=65299 WHERE `DisplayID` IN (101829, 101832, 101826, 101805, 101827, 101816);
 UPDATE `creature_model_info` SET `BoundingRadius`=8.835020065307617187, `CombatReach`=8, `VerifiedBuild`=65299 WHERE `DisplayID`=104572;
@@ -830,7 +869,6 @@ UPDATE `creature_model_info` SET `BoundingRadius`=8.401942253112792968, `CombatR
 UPDATE `creature_model_info` SET `BoundingRadius`=1.314786672592163085, `CombatReach`=1.875 WHERE `DisplayID`=104034;
 UPDATE `creature_model_info` SET `BoundingRadius`=1.933423042297363281, `CombatReach`=1.399999976158142089, `VerifiedBuild`=65299 WHERE `DisplayID`=104156;
 UPDATE `creature_model_info` SET `BoundingRadius`=0.613567113876342773, `CombatReach`=0.875, `VerifiedBuild`=65299 WHERE `DisplayID` IN (104027, 104028, 104029);
-
 
 UPDATE `creature_template` SET `faction`=190, `npcflag`=16777216, `speed_walk`=1.399999976158142089, `speed_run`=0.5, `BaseAttackTime`=2000, `unit_flags`=0x300, `unit_flags2`=0x800 WHERE `entry`=199010; -- Empowered Snail
 UPDATE `creature_template` SET `faction`=16, `BaseAttackTime`=2000, `unit_flags`=0x40, `unit_flags2`=0x800 WHERE `entry`=193926; -- Elder Obsidian Hornswog
