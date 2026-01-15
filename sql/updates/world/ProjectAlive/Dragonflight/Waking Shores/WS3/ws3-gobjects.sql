@@ -1,6 +1,6 @@
 SET @OGUID := 62000000;
 
-DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+0 AND @OGUID+41;
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+0 AND @OGUID+60;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficulties`, `PhaseId`, `PhaseGroup`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 (@OGUID+0, 381516, 2444, 13644, 13644, '0', '0', 0, 3257.77783203125, -691.4774169921875, 116.692047119140625, 3.916724205017089843, 0, 0, -0.92583179473876953, 0.377935826778411865, 120, 255, 1, 65299), -- Molten Serevite Deposit (Area: The Waking Shores - Difficulty: 0) CreateObject1
 (@OGUID+1, 376646, 2444, 13644, 13644, '0', '0', 0, 3153.287353515625, 480.828125, 206.784210205078125, 4.380497455596923828, 0, 0, -0.81419658660888671, 0.58058929443359375, 120, 255, 1, 65299), -- Rock Wall (Area: The Waking Shores - Difficulty: 0) CreateObject1
@@ -43,9 +43,22 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnDifficu
 (@OGUID+38, 381102, 2444, 13644, 13704, '0', '0', 0, 4054.0791015625, -729.296875, 134.524688720703125, 1.817364811897277832, 0, 0, 0.788694381713867187, 0.614785432815551757, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@OGUID+39, 380580, 2444, 13644, 13704, '0', '0', 0, 3947.81689453125, -763.685791015625, 110.9877700805664062, 1.84769594669342041, 0, 0, 0.797926902770996093, 0.60275423526763916, 120, 255, 1, 65299), -- Lava-Infused Seed (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 (@OGUID+40, 381516, 2444, 13644, 13704, '0', '0', 0, 3730.275146484375, -813.9461669921875, 128.178863525390625, 2.552283525466918945, 0, 0, 0.956902503967285156, 0.290409356355667114, 120, 255, 1, 65299), -- Molten Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
-(@OGUID+41, 381205, 2444, 13644, 13704, '0', '0', 0, 3723.901123046875, -967.47052001953125, 237.30767822265625, 2.199265956878662109, 0, 0, 0.891040802001953125, 0.453923225402832031, 120, 255, 1, 65299); -- Titan-Touched Saxifrage (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+41, 381205, 2444, 13644, 13704, '0', '0', 0, 3723.901123046875, -967.47052001953125, 237.30767822265625, 2.199265956878662109, 0, 0, 0.891040802001953125, 0.453923225402832031, 120, 255, 1, 65299), -- Titan-Touched Saxifrage (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+42, 382033, 2444, 13644, 13704, '0', '0', 0, 3423.6640625, -547.6944580078125, 73.6632232666015625, 0, 0, 0, 0, 1, 120, 255, 1, 65299), -- Djaradin Supply Jar (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+43, 381103, 2444, 13644, 13704, '0', '0', 0, 3234.0625, -690.31597900390625, 101.913116455078125, 3.933815479278564453, 0, 0, -0.92256832122802734, 0.385833740234375, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+44, 381102, 2444, 13644, 13704, '0', '0', 0, 3393.037353515625, -481.383697509765625, 141.3539276123046875, 3.675177335739135742, 0, 0, -0.96462154388427734, 0.263638526201248168, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+45, 381960, 2444, 13644, 13704, '0', '0', 0, 4008.81591796875, -513.79864501953125, 118.7789764404296875, 2.777188539505004882, 0, 0, 0.983447074890136718, 0.181195601820945739, 120, 255, 1, 65299), -- Lush Hochenblume (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+46, 379252, 2444, 13644, 13704, '0', '0', 0, 4027.259521484375, -491.614593505859375, 79.87876129150390625, 3.691234111785888671, 0, 0, -0.96247386932373046, 0.271374344825744628, 120, 255, 1, 65299), -- Draconium Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+47, 376580, 2444, 13644, 13704, '0', '0', 0, 4005.6494140625, -577.62677001953125, 105.8289337158203125, 3.203296422958374023, 0, 0, -0.99952411651611328, 0.030846856534481048, 120, 255, 1, 65299), -- Djaradin Cache (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+48, 381516, 2444, 13644, 13704, '0', '0', 0, 4047.835205078125, -573.3507080078125, 109.1557464599609375, 4.292360305786132812, 0, 0, -0.83898353576660156, 0.544156789779663085, 120, 255, 1, 65299), -- Molten Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+49, 382033, 2444, 13644, 13704, '0', '0', 0, 4027.942626953125, -652.41668701171875, 110.54168701171875, 0, 0, 0, 0, 1, 120, 255, 1, 65299), -- Djaradin Supply Jar (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+50, 382033, 2444, 13644, 13704, '0', '0', 0, 4001.4853515625, -706.76214599609375, 110.54168701171875, 0, 0, 0, 0, 1, 120, 255, 1, 65299), -- Djaradin Supply Jar (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+51, 381102, 2444, 13644, 13704, '0', '0', 0, 3909.639892578125, -721.138916015625, 105.1699600219726562, 0, 0, 0, 0, 1, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+52, 381102, 2444, 13644, 13704, '0', '0', 0, 3842.23876953125, -729.53302001953125, 107.7673568725585937, 2.599551200866699218, 0, 0, 0.963498115539550781, 0.267715096473693847, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+53, 381102, 2444, 13644, 13704, '0', '0', 0, 3717.834228515625, -546.0399169921875, 36.94415283203125, 4.325613021850585937, 0, 0, -0.82982063293457031, 0.558030247688293457, 120, 255, 1, 65299), -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
+(@OGUID+54, 381102, 2444, 13644, 13704, '0', '0', 0, 3574.270751953125, -198.194442749023437, 49.93735504150390625, 2.736135005950927734, 0, 0, 0.979520797729492187, 0.201343059539794921, 120, 255, 1, 65299); -- Serevite Deposit (Area: Scalecracker Keep - Difficulty: 0) CreateObject1
 
-DELETE FROM `gameobject_addon` WHERE `guid` BETWEEN @OGUID+0 AND @OGUID+41;
+DELETE FROM `gameobject_addon` WHERE `guid` BETWEEN @OGUID+0 AND @OGUID+60;
 INSERT INTO `gameobject_addon` (`guid`, `parent_rotation0`, `parent_rotation1`, `parent_rotation2`, `parent_rotation3`, `WorldEffectID`, `AIAnimKitID`) VALUES
 (@OGUID+22, 0, 0, 0.551937282085418701, 0.833885610103607177, 0, 0), -- Lava
 (@OGUID+23, 0, 0, 0.551937282085418701, 0.833885610103607177, 0, 0), -- Lava
@@ -54,4 +67,25 @@ INSERT INTO `gameobject_addon` (`guid`, `parent_rotation0`, `parent_rotation1`, 
 (@OGUID+31, 0, 0, 0.207911789417266845, 0.978147566318511962, 0, 0), -- Lava
 (@OGUID+32, 0, 0, 0.207911789417266845, 0.978147566318511962, 0, 0), -- Lava
 (@OGUID+34, 0, 0, 0.207911789417266845, 0.978147566318511962, 0, 0), -- Lava
-(@OGUID+39, 0, 0, 0, 1, 19980, 2664); -- Lava-Infused Seed
+(@OGUID+39, 0, 0, 0, 1, 19980, 2664), -- Lava-Infused Seed
+(@OGUID+47, 0, 0, 0, 1, 2437, 0); -- Djaradin Cache
+
+DELETE FROM `gameobject_template_addon` WHERE `entry` IN (376386 /*Disturbed Dirt*/, 380580 /*Lava-Infused Seed*/, 381516 /*Molten Serevite Deposit*/, 376580 /*Djaradin Cache*/, 379252 /*Draconium Deposit*/, 381960 /*Lush Hochenblume*/, 380579 /*Spare Djaradin Tools*/, 381102 /*Serevite Deposit*/, 381103 /*Serevite Deposit*/, 382033 /*Djaradin Supply Jar*/, 376626 /*Djaradin Armaments*/, 381369 /*Dragonscale Expedition Flag*/, 380940 /*Broken Head*/, 380918 /*Broken Ornamented Statue*/, 376634 /*Rock Wall*/, 380502 /*Siege Arbalest*/, 376646 /*Rock Wall*/);
+INSERT INTO `gameobject_template_addon` (`entry`, `faction`, `flags`, `WorldEffectID`, `AIAnimKitID`) VALUES
+(376386, 0, 0x44002, 0, 0), -- Disturbed Dirt
+(380580, 0, 0x204000, 19980, 2664), -- Lava-Infused Seed
+(381516, 94, 0x44000, 0, 0), -- Molten Serevite Deposit
+(376580, 0, 0x44000, 2437, 0), -- Djaradin Cache
+(379252, 94, 0x44000, 0, 0), -- Draconium Deposit
+(381960, 0, 0x44000, 0, 0), -- Lush Hochenblume
+(380579, 0, 0x0, 19982, 0), -- Spare Djaradin Tools
+(381102, 94, 0x44000, 0, 0), -- Serevite Deposit
+(381103, 94, 0x244000, 0, 0), -- Serevite Deposit
+(382033, 0, 0x44000, 0, 0), -- Djaradin Supply Jar
+(376626, 0, 0x40000, 0, 0), -- Djaradin Armaments
+(381369, 0, 0x20850020, 0, 0), -- Dragonscale Expedition Flag
+(380940, 0, 0x4, 0, 0), -- Broken Head
+(380918, 0, 0x24, 0, 0), -- Broken Ornamented Statue
+(376634, 0, 0x10020, 0, 0), -- Rock Wall
+(380502, 0, 0x42000, 0, 0), -- Siege Arbalest
+(376646, 0, 0x10020, 0, 0); -- Rock Wall
